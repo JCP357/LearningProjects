@@ -23,19 +23,29 @@ public class Maquina {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
+        
+        //Setting up the file to read the info
+        
+        
         FileReader fr = new FileReader("gol.txt");
         BufferedReader br = new BufferedReader(fr);
 
         String Index = br.readLine();
 
         int ind = Integer.parseInt("" + Index);
-
+    
+        //read first character and define as int
+        
+        
         double[][] precios = new double[ind][ind];
         int[][] Cantidad = new int[ind][ind];
-        String[][] nombres = new String[4][4];
-
+        String[][] nombres = new String[ind][ind];
+        
+        //Set the arrays that contains the data
+        
+        
         String linea = "";
-
+//read whole names and set the array 
         for (int x = 0; x < ind; x++) {
 
             linea = br.readLine();
@@ -43,7 +53,7 @@ public class Maquina {
             nombres[x] = linea.split(",");
 
         }
-
+//set the prices array from string to double,then insert the data
         for (int q = 0; q < ind; q++) {
 
             linea = br.readLine();
@@ -58,6 +68,8 @@ public class Maquina {
 
         }
 
+        //same goes with quantity of prroducts
+        
         for (int q = 0; q < ind; q++) {
 
             linea = br.readLine();
@@ -72,11 +84,14 @@ public class Maquina {
 
         }
 
+        //Standard menu
+        
         Scanner l = new Scanner(System.in);
         boolean salida = true;
         int opcion = 0;
 
         do {
+            
             System.out.println("Introduzca una opcion");
 
             System.out.println("1-Pedir golosina");
@@ -88,6 +103,7 @@ public class Maquina {
             System.out.println("4-Resumen y salida ");
 
             opcion = l.nextInt();
+            
             switch (opcion) {
 
                 case 1:
